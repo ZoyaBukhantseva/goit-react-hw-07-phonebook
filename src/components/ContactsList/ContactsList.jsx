@@ -1,22 +1,24 @@
 import React from 'react';
 import ContactListItem from './ContactListItem';
-import { useSelector } from "react-redux";
-import { getContactsState, getFiltrState, getFileteredContacts } from 'redux/selectors';
-
+import {useSelector, useDispatch } from "react-redux";
+import {fetchAllContacts } from "..//..//redux/contact-operations";
+import { useEffect } from 'react';
+import { selectFileteredContacts} from "..//..//redux/selectors"
 const ContactList = () => {
- 
-  const contactState = useSelector(getContactsState);
-  const filterState = useSelector(getFiltrState);
+  const dispatch = useDispatch();
 
-  const contactList = filterState ? getFileteredContacts(contactState ,filterState) : contactState;
+  useEffect(()=>{
+    dispatch(fetchAllContacts());
+  }, [dispatch])
 
+  const filteredContacts = useSelector(selectFileteredContacts);
     return (
       <ul>
-        { contactList.map((element)=> {
+        { filteredContacts.map((element)=> {
           return <ContactListItem key = { element.id }
              id = { element.id }
              name = { element.name }
-             number = { element.number }
+             phone = { element.phone }
           />
         }) }
       </ul>   

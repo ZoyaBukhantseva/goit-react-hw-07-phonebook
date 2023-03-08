@@ -2,24 +2,26 @@ import React from 'react';
 import styles from './Filter.module.css';
 import { useSelector, useDispatch } from "react-redux";
 import { updFilter } from '..//..//redux/filterSlise';
-import { getFiltrState } from 'redux/selectors'
+import { selectFiltrState } from '..//..//redux/selectors';
 
-const Filter = () => {
-  const filterState = useSelector(getFiltrState);
-  const dispatch = useDispatch();
 
-  const  hendleChange = (e) => {
-      const findName = e.currentTarget.value;
-      dispatch(updFilter(findName));
-   };
+const Filter = ( ) => {
 
-  return (
+    const filterState = useSelector(selectFiltrState);
+    const dispatch = useDispatch();
+
+    const  handleChange = (e) => {
+        const findName = e.currentTarget.value;
+        dispatch(updFilter(findName));
+     };
+
+return (
     <>
       <p  className={styles.item}>Find contacts by name</p>
       <label className={styles.FilterLable}>
         <input
         className={styles.input}
-          onChange={hendleChange}
+          onChange={handleChange}
           type="text"
           name="filter"
           placeholder="Enter name..."

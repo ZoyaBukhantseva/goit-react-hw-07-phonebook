@@ -3,15 +3,15 @@
   height: 30px;
  margin-left: 30px;
   display: inline-block;
-  color: #fff;
-  background-color: #230258;
+  color:#fff;
+  background-color: #23025886;
   border-radius: 5px;
-  border: transparent;
+  border:  transparent;
   cursor: pointer;
 }
 .contactListItem {
 list-style: none;
 font-size: 16px;
 font-style: normal;
-width: 250px;
+margin-top: 5px;
 }

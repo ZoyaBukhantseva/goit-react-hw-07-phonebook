@@ -7,12 +7,17 @@ import s from "..//components/ContactForm/ContactForm.module.css"
 const App=()=>{
 
 return (<>
+<div className={s.wrapper}>
+<div className={s.phonebook}>
     <h1 className={s.header}>Phonebook</h1>
     <ContactForm />
+</div>
+<div className={s.contacts}>
     <h2  className={s.header}>Contacts</h2>
     <Filter />
-    <ContactList
-    />
+    <ContactList/>
+    </div>
+    </div>
   </>
 );
 };
